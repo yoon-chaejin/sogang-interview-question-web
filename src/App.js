@@ -4,15 +4,18 @@ import * as Pages from './pages';
 function App() {
   return (
     <div>
-      <Route exact path='/signin' component={Pages.SignIn}/>
-      <Route exact path='/signup' component={Pages.SignUp}/>
+      <Switch>
+        <Route exact path='/signin' component={Pages.SignIn}/>
+        <Route exact path='/signup' component={Pages.SignUp}/>
 
-      <RequireAuth>
-        <Switch>
-          <Route exact path ='/category' component={Pages.Category}/>
-          <Route exact path='/' component={Pages.Home}/>
-        </Switch>
-      </RequireAuth>
+        <RequireAuth>
+          <Switch>
+            <Route exact path='/categories' component={Pages.Category}/>
+            <Route exact path='/questions' component={Pages.Question}/>
+            <Route exact path='/' component={Pages.Home}/>
+          </Switch>
+        </RequireAuth>
+      </Switch>
     </div>
   );
 }
