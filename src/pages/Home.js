@@ -2,7 +2,11 @@ import { React, useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { signOut } from '../services/auth.service';
 
-const Home = () => {
+const Home = (props) => {
+    
+    useEffect(() => {
+        props.history.push('/categories')
+    })
 
     return (
         <div>
