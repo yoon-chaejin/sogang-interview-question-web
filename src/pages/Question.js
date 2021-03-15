@@ -74,7 +74,7 @@ const Question = ({location, ...props}) => {
     }, [tagId])
 
     const getQuestions = async () => {
-        axios.get(API_BASE_URL+'/intv-question/tag/'+tagId, {
+        axios.get(API_BASE_URL+'intv-question/tag/'+tagId, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             } 

@@ -59,7 +59,7 @@ const Category = (props) => {
     }, [])
 
     const getTags = async () => {
-        axios.get(API_BASE_URL + '/tag', {
+        axios.get(API_BASE_URL + 'tag', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }

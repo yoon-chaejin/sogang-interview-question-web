@@ -12,7 +12,7 @@ const SignUp = (props) => {
     const [sogangEmail, setSogangEmail] = useState('');
 
     const signUp = () => {
-        return axios.post(API_BASE_URL + "/users", {
+        return axios.post(API_BASE_URL + "users", {
           username,
           email,
           password,

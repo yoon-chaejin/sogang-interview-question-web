@@ -59,7 +59,7 @@ const SignIn = (props) => {
         }
     })
     const signIn = async () => {
-        axios.post(API_BASE_URL+'/auth/login', { email, password })
+        axios.post(API_BASE_URL+'auth/login', { email, password })
         .then(response => {
             if (response.data.accessToken) {
                 localStorage.setItem("token", response.data.accessToken);
