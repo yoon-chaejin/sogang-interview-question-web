@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
       height: '100vh',
     },
     image: {
-      backgroundImage: 'url(https://source.unsplash.com/random)',
+      backgroundImage: 'url(https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c288d5-ae9d-4ab7-bd62-abd68cec2328/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210316%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210316T130028Z&X-Amz-Expires=86400&X-Amz-Signature=b343da48998d34e31f9c1f58fbe11c96f77db76743f2f4a711a2e9f675a2dc5b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)',
       backgroundRepeat: 'no-repeat',
       backgroundColor:
         theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-      backgroundSize: 'cover',
+      backgroundSize: 'fit',
       backgroundPosition: 'center',
     },
     paper: {
