@@ -73,7 +73,7 @@ const Category = (props) => {
     return (
         <div>
             <CssBaseline />
-            <AppBar position="relative">
+            <AppBar position="relative" color="primary">
                 <Toolbar>
                 <CameraIcon className={classes.icon} />
                 <Typography variant="h6" color="inherit" noWrap>
@@ -115,14 +115,17 @@ const Category = (props) => {
                         {tags.map((item) => (
                         <Grid item key={item.id} xs={12} sm={6} md={4}>
                             <Card className={classes.card}>
-                            <CardMedia
+                            {/* <CardMedia
                                 className={classes.cardMedia}
                                 image="https://source.unsplash.com/random"
                                 title="Image title"
-                            />
+                            /> */}
                             <CardContent className={classes.cardContent}>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                {item.name}
+                                    {item.name}
+                                </Typography>
+                                <Typography>
+                                    {item.count} questions in the category
                                 </Typography>
                             </CardContent>
                             <CardActions>
