@@ -89,7 +89,6 @@ return (
         <CssBaseline />
         <AppBar position="relative" color="primary">
             <Toolbar>
-            <CameraIcon className={classes.icon} />
             <Typography variant="h6" color="inherit" noWrap>
                 Questions
             </Typography>
