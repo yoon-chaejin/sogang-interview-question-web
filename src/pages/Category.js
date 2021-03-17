@@ -75,7 +75,6 @@ const Category = (props) => {
             <CssBaseline />
             <AppBar position="relative" color="primary">
                 <Toolbar>
-                <CameraIcon className={classes.icon} />
                 <Typography variant="h6" color="inherit" noWrap>
                     Categories
                 </Typography>
@@ -124,16 +123,20 @@ const Category = (props) => {
                                 <Typography gutterBottom variant="h5" component="h2">
                                     {item.name}
                                 </Typography>
-                                <Typography>
-                                    {item.count} questions in the category
-                                </Typography>
                             </CardContent>
                             <CardActions>
+                                <Grid container>
+                                <Typography>
+                                    {item.count} questions
+                                </Typography>
+                                </Grid>
+                                <Grid container>
                                 <Link href={'/questions?tag='+item.id}>
                                     <Button size="small" color="primary">
                                         View
                                     </Button>
                                 </Link>
+                                </Grid>
                             </CardActions>
                             </Card>
                         </Grid>

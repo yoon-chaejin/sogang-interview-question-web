@@ -12,8 +12,11 @@ const theme = createMuiTheme({
       main: '#0a5e2a'
     },
     secondary: {
-      main: '#FE0000'
-    }
+      main: '#C00000'
+    },
+  },
+  typography: {
+    fontFamily: '"Noto Sans, "Noto Sans KR"',
   }
 });
 ReactDOM.render(
