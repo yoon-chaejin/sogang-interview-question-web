@@ -11,7 +11,8 @@ function App() {
         <RequireAuth>
           <Switch>
             <Route exact path='/categories' component={Pages.Category}/>
-            <Route exact path='/questions' component={Pages.Question}/>
+            <Route exact path='/questions/:id' component={Pages.Question}/>
+            <Route exact path='/questions' component={Pages.Questions}/>
             <Route exact path='/' component={Pages.Home}/>
           </Switch>
         </RequireAuth>
