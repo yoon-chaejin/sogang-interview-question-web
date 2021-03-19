@@ -55,8 +55,7 @@ const Question = (props) => {
                 <Container className={classes.cardGrid} maxWidth="md">
                     <Typography className={classes.sectionTitle} variant='h5'>Answer</Typography>
                     <Grid container>
-                        <Grid xs={2} item></Grid>
-                        <Grid xs={10} item>
+                        <Grid xs={12} item>
                             <TextField className={classes.textField} multiline variant='outlined' rows={4} placeholder={'답변을 남겨주세요'}></TextField>
                         </Grid>
                     </Grid>
@@ -66,11 +65,11 @@ const Question = (props) => {
                     <List component="nav" aria-label="secondary mailbox folders">
                         {answers.map((item) => (
                             <Grid key={item.id} item container>
-                                <Grid xs={2} item container direction='column'>
+                                <Grid xs={1} item container direction='column'>
                                     <IconButton><ChangeHistory></ChangeHistory></IconButton>
                                     <IconButton><Details></Details></IconButton>
                                 </Grid>
-                                <Grid xs={10} item>
+                                <Grid xs={11} item>
                                     <TextField className={classes.textField} disabled multiline variant='outlined' rows={4} defaultValue={item.content}></TextField>
                                 </Grid>
                             </Grid>
