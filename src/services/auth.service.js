@@ -1,4 +1,5 @@
 export const signOut = () => {
+    alert('Goodbye!');
     localStorage.removeItem('token');
 }
 
