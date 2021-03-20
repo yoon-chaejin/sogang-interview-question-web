@@ -7,9 +7,13 @@ import NavigationBar from '../components/NavigationBar';
 import { API_BASE_URL } from '../constants';
 
 const useStyles = makeStyles((theme) => ({
-    cardGrid: {
-        paddingTop: theme.spacing(8),
-        paddingBottom: theme.spacing(4),
+    questionSection: {
+        paddingTop: theme.spacing(12),
+        paddingBottom: theme.spacing(2),
+    },
+    answerSection: {
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(4)
     },
     textField: {
         width: '100%',
@@ -42,7 +46,7 @@ const Question = (props) => {
         <div>
             <NavigationBar title={'Question and Answer'} />
             <main>
-                <Container className={classes.cardGrid} maxWidth="md">
+                <Container className={classes.questionSection} maxWidth="md">
                     <Grid container>
                         <Grid item xs={3}>
                             <Typography className={classes.sectionTitle} variant='h5'>Question</Typography>
@@ -52,7 +56,7 @@ const Question = (props) => {
                         </Grid>
                     </Grid>
                 </Container>
-                <Container className={classes.cardGrid} maxWidth="md">
+                <Container className={classes.answerSection} maxWidth="md">
                     <Typography className={classes.sectionTitle} variant='h5'>Answer</Typography>
                     <Grid container>
                         <Grid xs={12} item>
@@ -60,7 +64,7 @@ const Question = (props) => {
                         </Grid>
                     </Grid>
                 </Container>
-                <Container className={classes.cardGrid} maxWidth="md">
+                <Container className={classes.answerSection} maxWidth="md">
                     <Typography className={classes.sectionTitle} variant='h5'>Other Answers</Typography>
                     <List component="nav" aria-label="secondary mailbox folders">
                         {answers.map((item) => (
