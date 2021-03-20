@@ -48,10 +48,10 @@ const Question = (props) => {
             <main>
                 <Container className={classes.questionSection} maxWidth="md">
                     <Grid container>
-                        <Grid item xs={3}>
+                        <Grid item md={3} xs={4}>
                             <Typography className={classes.sectionTitle} variant='h5'>Question</Typography>
                         </Grid>
-                        <Grid item xs={9}>
+                        <Grid item md={9} xs={8}>
                             <Typography variant='h6'>{question}</Typography>
                         </Grid>
                     </Grid>
@@ -69,11 +69,11 @@ const Question = (props) => {
                     <List component="nav" aria-label="secondary mailbox folders">
                         {answers.map((item) => (
                             <Grid key={item.id} item container>
-                                <Grid xs={1} item container direction='column'>
+                                <Grid xs={2} md={1} item container direction='column'>
                                     <IconButton><ChangeHistory></ChangeHistory></IconButton>
                                     <IconButton><Details></Details></IconButton>
                                 </Grid>
-                                <Grid xs={11} item>
+                                <Grid xs={10} md={11} item>
                                     <TextField className={classes.textField} disabled multiline variant='outlined' rows={4} defaultValue={item.content}></TextField>
                                 </Grid>
                             </Grid>
