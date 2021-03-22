@@ -58,13 +58,21 @@ const SignIn = (props) => {
     const signIn = async () => {
         axios.post(API_BASE_URL+'auth/login', { email, password })
         .then(response => {
-            if (response.data.accessToken) {
-                localStorage.setItem("token", response.data.accessToken);
+            switch (response.status) {
+                case 401 : 
+                    alert(response.statusText);
+                    break;
+                default :
+                    if (response.data.accessToken) {
+                        localStorage.setItem("token", response.data.accessToken);
+                    }
+                    alert('Success');
+                    props.history.push('/categories');
             }
-            alert('Success');
-            props.history.push('/categories');
         })
-        .catch(error => alert('Failed'))
+        .catch(error => {
+            alert(error.response.data.message);
+        })
     }
 
     const handleKeyPress = (event) => {
