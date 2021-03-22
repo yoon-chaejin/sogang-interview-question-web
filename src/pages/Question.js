@@ -48,10 +48,10 @@ const Question = (props) => {
             <main>
                 <Container className={classes.questionSection} maxWidth="md">
                     <Grid container>
-                        <Grid item md={3} xs={4}>
+                        <Grid item md={3} xs={12}>
                             <Typography className={classes.sectionTitle} variant='h5'>Question</Typography>
                         </Grid>
-                        <Grid item md={9} xs={8}>
+                        <Grid item md={9} xs={12}>
                             <Typography variant='h6'>{question}</Typography>
                         </Grid>
                     </Grid>
