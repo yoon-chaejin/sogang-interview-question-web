@@ -46,7 +46,7 @@ const SignUp = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
-    const [sogangEmail, setSogangEmail] = useState('');
+    const [sogangMail, setSogangMail] = useState('');
 
     const signUp = () => {
         if (username === null || username === '') {
@@ -69,13 +69,19 @@ const SignUp = (props) => {
             alert('Password and Password Check Different');
             return;
         }
+        if (sogangMail.indexOf('@sogang.ac.kr') < 0) {
+            alert('Sogang Mail Only');
+            return;
+        }
         
         return axios.post(API_BASE_URL + "users", {
           username,
           email,
           password,
+          sogangMail,
         })
         .then(response => {
+            alert('Check your Sogang Mail and Click the Authentication URL');
             props.history.push('/signin');
         });
     };
@@ -159,7 +165,7 @@ const SignUp = (props) => {
                             type="email"
                             id="sogang-email"
                             autoComplete="email"
-                            onChange={(event) => setSogangEmail(event.target.value)}
+                            onChange={(event) => setSogangMail(event.target.value)}
                             onKeyPress={handleKeyPress}
                         />
                         <Button
