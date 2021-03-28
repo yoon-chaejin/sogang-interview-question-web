@@ -13,37 +13,19 @@ import queryString from 'query-string'
 import NavigationBar from '../components/NavigationBar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Button, Grid, IconButton } from '@material-ui/core';
+import { Bookmark } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
-    icon: {
-      marginRight: theme.spacing(2),
-    },
-    heroContent: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(8, 0, 6),
-    },
-    heroButtons: {
-      marginTop: theme.spacing(4),
-    },
     cardGrid: {
       paddingTop: theme.spacing(8),
       paddingBottom: theme.spacing(8),
     },
-    card: {
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
+    questionGrid: {
+        paddingTop: theme.spacing(1)
     },
-    cardMedia: {
-      paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-      flexGrow: 1,
-    },
-    footer: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(6),
-    },
+    questionButton: {
+    }
 }));
 
 const Questions = ({location, ...props}) => {
@@ -93,15 +75,15 @@ return (
         <main>
             <Container className={classes.cardGrid} maxWidth="md">
                 <Typography variant='h5'>{tagName}</Typography>
-                <List component="nav" aria-label="secondary mailbox folders">
+                <Grid container>
                     {questions.map((item) => (
-                        <Link key={item.id} href={'/questions/'+item.id}>
-                            <ListItem button >
-                                <ListItemText primary={item.content} />
-                            </ListItem>
-                        </Link>
+                        <Grid className={classes.questionGrid} xs={12} item key={item.id}>
+                            <Link href={'/questions/'+item.id}>
+                                <Button className={classes.questionButton} color="primary" variant='text' size='large'>{item.content}</Button>
+                            </Link>
+                        </Grid>
                     ))}
-                </List>
+                </Grid>
             </Container>
         </main>
     </div>
