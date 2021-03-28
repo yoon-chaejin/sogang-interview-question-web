@@ -64,6 +64,7 @@ const SignIn = (props) => {
                     break;
                 default :
                     if (response.data.accessToken) {
+                        localStorage.setItem("user", response.data.user);
                         localStorage.setItem("token", response.data.accessToken);
                     }
                     alert('Success');
