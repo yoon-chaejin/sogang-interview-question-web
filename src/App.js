@@ -10,6 +10,7 @@ function App() {
 
         <RequireAuth>
           <Switch>
+            <Route exact path='/mypage' component={Pages.MyPage}/>
             <Route exact path='/categories' component={Pages.Category}/>
             <Route exact path='/questions/:id' component={Pages.Question}/>
             <Route exact path='/questions' component={Pages.Questions}/>

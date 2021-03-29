@@ -38,8 +38,9 @@ const NavigationBar = (props) => {
                     <Typography className={classes.typographyTitle} variant="h6" color="inherit" noWrap>
                         {props.title}
                     </Typography>
+                    <Button className={classes.navigationButton} onClick={() => handleClick('/honey-tip')}>Honey Tip</Button>
                     <Button className={classes.navigationButton} onClick={() => handleClick('/categories')}>Categories</Button>
-                    <Button className={classes.navigationButton} onClick={() => alert('개발 중입니다')/*() => handleClick('/mypage')*/}>My Page</Button>
+                    <Button className={classes.navigationButton} onClick={() => handleClick('/mypage')}>My Page</Button>
                     <Button className={classes.navigationButton} onClick={() => handleClick('/')}>Signout</Button>
                 </Toolbar>
             </AppBar>

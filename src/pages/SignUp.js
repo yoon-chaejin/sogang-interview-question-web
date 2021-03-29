@@ -19,10 +19,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      height: '100vh',
+        display: 'flex',
+        alignItems: 'center'
     },
     paper: {
-      margin: theme.spacing(8, 4),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -96,7 +96,7 @@ const SignUp = (props) => {
 
     return (
         <div>
-            <Grid container component="main">
+            <Grid className={classes.root} container component="main">
                 <CssBaseline />
                 <Grid>
                     <div className={classes.paper}>
