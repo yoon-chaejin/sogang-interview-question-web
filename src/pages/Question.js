@@ -27,13 +27,13 @@ const useStyles = makeStyles((theme) => ({
 const Question = (props) => {
     const classes = useStyles();
     const [question, setQuestion] = useState({});
-    const [answers, setAnswers] = useState([{id: 1, content: "다른 사람의 답변을 볼 수 있습니다."}])
+    const [answers, setAnswers] = useState([])
     const [myAnswer, setMyAnswer] = useState('');
 
     useEffect(() => {
         getQuestion();
     }, [])
-
+    
     const getQuestion = () => {
         axios.get(API_BASE_URL + 'intv-question/' + props.match.params.id, {
             headers: {
@@ -42,7 +42,9 @@ const Question = (props) => {
         })
         .then(response => {
             setQuestion(response.data);
-            setAnswers(response.data.intvAnswers);
+            setAnswers(response.data.intvAnswers.filter(item => item.user.id != localStorage.getItem('userId')));
+            setMyAnswer(response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0]
+                ? response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0].content : '');
         })
     }
 
@@ -62,9 +64,6 @@ const Question = (props) => {
                 headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
-        })
-        .then(response => {
-            setAnswers(answers.concat(response.data));
         })
     }
 
@@ -121,11 +120,11 @@ const Question = (props) => {
                     <Typography className={classes.sectionTitle} variant='h5'>Your Answer</Typography>
                     <Grid container>
                         <Grid xs={12} item>
-                            <TextField className={classes.textField} multiline variant='outlined' rows={4} placeholder={'답변을 남겨주세요'} onChange={(event) => setMyAnswer(event.target.value)}></TextField>
+                            <TextField className={classes.textField} multiline variant='outlined' rows={4} placeholder={'답변을 남겨주세요'} value={myAnswer || ''} onChange={(event) => setMyAnswer(event.target.value)}></TextField>
                         </Grid>
                         <Grid xs={10} md={11} item></Grid>
                         <Grid xs={2} md={1} item>
-                            <Button onClick={handleSubmit}>Submit</Button>
+                            <Button onClick={handleSubmit}>Save</Button>
                         </Grid>
                     </Grid>
                 </Container>
