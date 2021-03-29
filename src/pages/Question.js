@@ -110,7 +110,9 @@ const Question = (props) => {
                                     <IconButton><Details></Details></IconButton>
                                 </Grid> */}
                                 <Grid xs={12} md={12} item>
-                                    <TextField className={classes.textField} disabled multiline variant='outlined' rows={4} defaultValue={item.content}></TextField>
+                                    <TextField 
+                                        className={classes.textField} multiline variant='outlined' rows={4} defaultValue={item.content} 
+                                        onCopy={(e)=>e.preventDefault()} onCut={(e)=>e.preventDefault()} onDragStart={(e)=>e.preventDefault()}/>
                                 </Grid>
                             </Grid>
                         ))}
