@@ -10,7 +10,11 @@ import { API_BASE_URL } from "../constants";
 const useStyles = makeStyles((theme) => createStyles({
     containerGrid: {
         paddingTop: theme.spacing(2),
-        paddingRight: theme.spacing(5)
+        paddingRight: theme.spacing(5),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(1),
+            paddingRight: theme.spacing(1)
+        }
     },
     paper: {
         display: 'flex',
@@ -18,7 +22,12 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: 'center',
     },
     sideMenuGrid: {
-        marginRight: theme.spacing(5)
+        [theme.breakpoints.up('md')]: {
+            marginRight: theme.spacing(5)
+        },
+        [theme.breakpoints.down('xs')]: {
+            paddingBottom: theme.spacing(2),
+        }
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -27,7 +36,11 @@ const useStyles = makeStyles((theme) => createStyles({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    questionButton: {
+        textAlign: 'left',
+    }
 }))
+
 const MyPage = () => {
     const classes = useStyles();
     const menuList = ['Personal Information', 'Bookmarks', 'My Answers'];
@@ -95,10 +108,10 @@ const MyPage = () => {
             <NavigationBar title={"MyPage"} />
             <Grid className={classes.containerGrid} container>
                 <Grid md={1} item></Grid>
-                <Grid className={classes.sideMenuGrid} xs={4} md={2} item>
+                <Grid className={classes.sideMenuGrid} xs={12} md={2} item>
                     <SideMenu menuList={menuList} menu={menu} setMenu={setMenu}></SideMenu>
                 </Grid>
-                <Grid xs={8} md={8} item>
+                <Grid xs={12} md={8} item>
                     <Paper className={classes.paper}>
                         {menu === menuList[0] ?
                         // personal information

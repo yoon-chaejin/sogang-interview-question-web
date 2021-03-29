@@ -10,9 +10,15 @@ import { withRouter } from 'react-router';
 const useStyles = makeStyles((theme) => ({
     typographyTitle: {
         flex: 1,
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        }
     },
     navigationButton: {
         color: '#ffffff',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '12px',
+        }
     },
     icon: {
         marginRight: theme.spacing(2)
