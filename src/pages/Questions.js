@@ -2,19 +2,14 @@ import axios from 'axios';
 import { React, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_BASE_URL } from '../constants';
-import { signOut } from '../services/auth.service';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import queryString from 'query-string'
 import NavigationBar from '../components/NavigationBar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Button, Grid, IconButton } from '@material-ui/core';
-import { Bookmark } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
