@@ -1,5 +1,5 @@
 export const signOut = () => {
-    alert('Goodbye!');
+    alert('성공적으로 로그아웃 하였습니다.');
     localStorage.removeItem('token');
 }
 

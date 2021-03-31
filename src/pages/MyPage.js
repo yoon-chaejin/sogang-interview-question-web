@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     questionButton: {
         textAlign: 'left',
+        textTransform: 'none'
     }
 }))
 
@@ -71,8 +72,16 @@ const MyPage = () => {
     }
 
     const handleSubmit = () => {
+        if (password == '') {
+            alert('기존 비밀번호를 입력해주세요.')
+            return;
+        }
+        if (newPassword == '') {
+            alert('새로운 비밀번호를 입력해주세요.')
+            return;
+        }
         if (newPassword !== newPasswordCheck) {
-            alert('New Password Check Failed');
+            alert('새로운 비밀번호가 일치하지 않습니다.');
             return;
         }
         axios.put(API_BASE_URL+'users/'+localStorage.getItem('userId')+'/password', {
@@ -85,13 +94,13 @@ const MyPage = () => {
             }
         })
         .then(response => {
-            alert('Password Changed');
+            alert('비밀번호가 성공적으로 변경되었습니다.');
             setPassword('');
             setNewPassword('');
             setNewPasswordCheck('');
         })
         .catch(error => {
-            alert('Wrong Password');
+            alert('틀린 비밀번호입니다.');
         })
     }
 

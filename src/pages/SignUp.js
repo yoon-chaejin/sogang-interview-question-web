@@ -44,27 +44,23 @@ const SignUp = (props) => {
 
     const signUp = () => {
         if (username === null || username === '') {
-            alert('Username Empty');
+            alert('Username을 입력해주세요.');
             return;
         }
         if (email === null || email === '') {
-            alert('Email Empty');
+            alert('Email을 입력해주세요.');
             return;
         }
         if (password === null || password === '') {
-            alert('Password Empty');
+            alert('Password를 입력해주세요.');
             return;
         }
-        if (passwordCheck === null || passwordCheck === '') {
-            alert('Password Check Empty');
-            return;
-        }
-        if (password !== passwordCheck) {
-            alert('Password and Password Check Different');
+        if (passwordCheck === null || passwordCheck === '' || password !== passwordCheck) {
+            alert('Password가 일치하지 않습니다.');
             return;
         }
         if (sogangMail.indexOf('@sogang.ac.kr') < 0) {
-            alert('Sogang Mail Only');
+            alert('서강 메일을 등록해주세요.');
             return;
         }
         
@@ -75,7 +71,7 @@ const SignUp = (props) => {
           sogangMail,
         })
         .then(response => {
-            alert('Check your Sogang Mail and Click the Authentication URL');
+            alert('서강 메일로 전송된 본인 인증 링크를 누르면 가입이 완료됩니다.\n\n인증 메일이 오지 않는 경우, sogang-tree@naver.com으로 문의주세요.');
             props.history.push('/signin');
         })
         .catch(error => {

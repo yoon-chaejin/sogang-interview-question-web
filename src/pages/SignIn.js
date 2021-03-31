@@ -68,12 +68,12 @@ const SignIn = (props) => {
                         localStorage.setItem("username", response.data.user.username);
                         localStorage.setItem("token", response.data.accessToken);
                     }
-                    alert('Success');
+                    alert('취뽀하세요!');
                     props.history.push('/categories');
             }
         })
         .catch(error => {
-            alert(error.response.data.message);
+            alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
         })
     }
 
