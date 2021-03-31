@@ -83,6 +83,9 @@ const SignUp = (props) => {
         .then(response => {
             alert('Check your Sogang Mail and Click the Authentication URL');
             props.history.push('/signin');
+        })
+        .catch(error => {
+            alert(error.response.data.message);
         });
     };
 
