@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     },
     textField: {
         width: '100%',
+        "& .Mui-disabled": {
+            color: "rgba(0, 0, 0, 1)" // (default alpha is 0.38)
+          }
     },
     sectionTitle: {
         paddingBottom: theme.spacing(4),
@@ -65,6 +68,12 @@ const Question = (props) => {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         })
+        .then(response => {
+            alert("답변이 등록되었습니다.");
+        })
+        .catch(error => {
+            alert("오류가 발생했습니다.")
+        })
     }
 
     const handleBookmark = () => {
@@ -111,7 +120,7 @@ const Question = (props) => {
                                 </Grid> */}
                                 <Grid xs={12} md={12} item>
                                     <TextField 
-                                        className={classes.textField} multiline variant='outlined' rows={4} defaultValue={item.content} 
+                                        className={classes.textField} multiline variant='outlined' rows={4} defaultValue={item.content} disabled
                                         onCopy={(e)=>e.preventDefault()} onCut={(e)=>e.preventDefault()} onDragStart={(e)=>e.preventDefault()}/>
                                 </Grid>
                             </Grid>

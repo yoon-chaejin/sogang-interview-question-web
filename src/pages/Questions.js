@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: theme.spacing(1)
     },
     questionButton: {
+        textTransform: 'none',
+        width: '100%',
+        justifyContent: 'flex-start',
+        textAlign: 'left'
+    },
+    title: {
+        paddingBottom: theme.spacing(2)
     }
 }));
 
@@ -69,12 +76,12 @@ return (
         <NavigationBar title={"Questions"} />
         <main>
             <Container className={classes.cardGrid} maxWidth="md">
-                <Typography variant='h5'>{tagName}</Typography>
+                <Typography className={classes.title} variant='h5'>{tagName}</Typography>
                 <Grid container>
                     {questions.map((item) => (
                         <Grid className={classes.questionGrid} xs={12} item key={item.id}>
                             <Link href={'/questions/'+item.id}>
-                                <Button className={classes.questionButton} color="primary" variant='text' size='large'>{item.content}</Button>
+                                <Button className={classes.questionButton} color="primary" variant='outlined' size='large'>{item.content}</Button>
                             </Link>
                         </Grid>
                     ))}
