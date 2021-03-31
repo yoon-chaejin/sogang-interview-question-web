@@ -133,9 +133,10 @@ const Question = (props) => {
                         <Grid xs={12} item>
                             <TextField className={classes.textField} multiline variant='outlined' rows={4} placeholder={'답변을 남겨주세요'} value={myAnswer || ''} onChange={(event) => setMyAnswer(event.target.value)}></TextField>
                         </Grid>
-                        <Grid xs={10} md={11} item></Grid>
-                        <Grid xs={2} md={1} item>
+                        <Grid xs={7} md={10} item></Grid>
+                        <Grid xs={5} md={2} item>
                             <Button onClick={handleSubmit}>Save</Button>
+                            <Button onClick={handleSubmit}>Delete</Button>
                         </Grid>
                     </Grid>
                 </Container>
