@@ -6,6 +6,7 @@ import { withRouter } from "react-router"
 import NavigationBar from "../components/NavigationBar";
 import SideMenu from "../components/SideMenu";
 import { API_BASE_URL } from "../constants";
+import { isComplicated } from "../services/auth.service";
 
 const useStyles = makeStyles((theme) => createStyles({
     containerGrid: {
@@ -82,6 +83,10 @@ const MyPage = () => {
         }
         if (newPassword !== newPasswordCheck) {
             alert('새로운 비밀번호가 일치하지 않습니다.');
+            return;
+        }
+        if (!isComplicated(newPassword)) {
+            alert('비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내로 설정해주세요.');
             return;
         }
         axios.put(API_BASE_URL+'users/'+localStorage.getItem('userId')+'/password', {

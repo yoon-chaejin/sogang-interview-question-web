@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL } from '../constants';
-
+import { isComplicated } from '../services/auth.service';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
@@ -57,6 +57,10 @@ const SignUp = (props) => {
         }
         if (passwordCheck === null || passwordCheck === '' || password !== passwordCheck) {
             alert('Password가 일치하지 않습니다.');
+            return;
+        }
+        if (!isComplicated(password)) {
+            alert('비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내로 설정해주세요.')
             return;
         }
         if (sogangMail.indexOf('@sogang.ac.kr') < 0) {
