@@ -6,7 +6,7 @@ import { withRouter } from "react-router"
 import NavigationBar from "../components/NavigationBar";
 import SideMenu from "../components/SideMenu";
 import { API_BASE_URL } from "../constants";
-import { isComplicated } from "../services/auth.service";
+import { isComplicated, isValidateToken } from "../services/auth.service";
 
 const useStyles = makeStyles((theme) => createStyles({
     containerGrid: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => createStyles({
     }
 }))
 
-const MyPage = () => {
+const MyPage = (props) => {
     const classes = useStyles();
     const menuList = ['Personal Information', 'Bookmarks', 'My Answers'];
     const [menu, setMenu] = useState(menuList[0]);
@@ -55,6 +55,7 @@ const MyPage = () => {
     const [newPasswordCheck, setNewPasswordCheck] = useState('');
 
     useEffect(() => {
+        isValidateToken(props);
         getUser();
     }, [])
 

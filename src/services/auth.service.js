@@ -1,3 +1,6 @@
+import axios from "axios";
+import { API_BASE_URL } from "../constants";
+
 export const signOut = () => {
     alert('성공적으로 로그아웃 하였습니다.');
     localStorage.removeItem('token');
@@ -31,4 +34,16 @@ export const isComplicated = (password) => {
     }
 
     return true;
+}
+
+export const isValidateToken = (props) => {
+    axios.get(API_BASE_URL + 'tag', {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
+    .catch(error => {
+        localStorage.removeItem('token');
+        props.history.push('/');
+    })
 }

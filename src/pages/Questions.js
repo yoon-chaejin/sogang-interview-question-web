@@ -10,6 +10,7 @@ import NavigationBar from '../components/NavigationBar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Button, Grid, IconButton } from '@material-ui/core';
+import { isValidateToken } from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Questions = ({location, ...props}) => {
+const Questions = (props) => {
     const classes = useStyles();
 
     const [questions, setQuestions] = useState([]);
@@ -38,13 +39,14 @@ const Questions = ({location, ...props}) => {
     const [tagName, setTagName] = useState('');
     
     useEffect(() => {
-        const { tag } = queryString.parse(location.search);
+        isValidateToken(props);
+        const { tag } = queryString.parse(props.location.search);
         setTagId(tag);
     }, [])
 
     useEffect(() => {
         if (tagId) {
-            getQuestions();
+            getQuestions(props);
             getTagName();
         }
     }, [tagId])

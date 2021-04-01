@@ -1,5 +1,8 @@
 import { Container, createStyles, Link, List, ListItemText, makeStyles, Table, Typography } from "@material-ui/core";
+import { useEffect } from "react";
+import { withRouter } from "react-router";
 import NavigationBar from "../components/NavigationBar";
+import { isValidateToken } from "../services/auth.service";
 
 const useStyles = makeStyles((theme) => createStyles({
     articleContainer: {
@@ -16,6 +19,7 @@ const useStyles = makeStyles((theme) => createStyles({
     articleBody: {
         paddingTop: theme.spacing(1),
         paddingBottom: theme.spacing(1),
+        textAlign: ""
     },
     img: {
         height: 300,
@@ -24,12 +28,15 @@ const useStyles = makeStyles((theme) => createStyles({
         }
     }
 }))
-export default function JaeyoonArticle () {
+const JaeyoonArticle = (props) => {
     const classes = useStyles();
 
+    useEffect(() => {
+        isValidateToken(props)
+    })
     return (
         <div>
-            <NavigationBar title={'ML/DL Roadmap'}/>
+            <NavigationBar title={'ML/DL, 자연어처리 Roadmap'}/>
             <Container className={classes.articleContainer} maxWidth="md">
                 <Typography className={classes.articleTitle} variant="h4">공부 로드맵</Typography>
                 <Typography className={classes.articleBody} variant="body1">딥러닝 분야가 뜬지 오래되지 않아 스탠다드한 공부 과정이나 용어가 정립되어 있지 않습니다. 이러한 점이 공부할 때 굉장히 혼란스러웠는데, 다른 분들도 비슷할 것 같습니다.</Typography>
@@ -78,7 +85,7 @@ export default function JaeyoonArticle () {
                     <Typography className={classes.articleSectionTitle} variant="h6">CS224n</Typography>
                     <Typography variant="subtitle1">강의</Typography>
                     <Link href={'https://www.youtube.com/watch?v=8rXD5-xhemo&list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z'}>강의 영상</Link><br/>
-                    <Link href={'https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/'}>강의 웹페이지</Link><br/>
+                    <Link href={'https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/'}>강의 실라부스</Link><br/>
                     <Typography variant="subtitle1">과제 솔루션</Typography>
                     <Link href={'https://github.com/daviddwlee84/Stanford-CS224n-NLP'}>https://github.com/daviddwlee84/Stanford-CS224n-NLP</Link>
                     <Typography className={classes.articleBody} variant="body1">스탠포드의 자연어처리 강의인 cs224n입니다. 자연어처리의 큰 줄기를 훑는 내용이어서 반드시 한번은 다 보시길 추천드립니다. 저는 일주일에 <strong>2~3 강의씩 두 달</strong>에 걸쳐서 들었습니다. 내용이 쉽지 않으므로 방학을 이용하여 스터디를 하시면 좋을 것 같습니다. ML/DL과 마찬가지로 수업에 딸린 과제가 있고, 과제 솔루션 링크도 첨부합니다.</Typography>
@@ -143,3 +150,5 @@ export default function JaeyoonArticle () {
         </div>
     )
 }
+
+export default withRouter(JaeyoonArticle)

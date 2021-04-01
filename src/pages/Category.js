@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
 import NavigationBar from '../components/NavigationBar';
+import { isValidateToken } from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -40,6 +41,7 @@ const Category = (props) => {
     const [tags, setTags] = useState([]);
 
     useEffect(() => {
+        isValidateToken(props);
         getTags();
     }, [])
 

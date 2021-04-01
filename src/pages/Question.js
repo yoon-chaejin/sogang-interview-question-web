@@ -5,6 +5,7 @@ import { React, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import { API_BASE_URL } from '../constants';
+import { isValidateToken } from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     questionSection: {
@@ -34,6 +35,7 @@ const Question = (props) => {
     const [myAnswer, setMyAnswer] = useState('');
 
     useEffect(() => {
+        isValidateToken(props);
         getQuestion();
     }, [])
     

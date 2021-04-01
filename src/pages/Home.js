@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { signOut } from '../services/auth.service';
+import { isValidateToken, signOut } from '../services/auth.service';
 
 const Home = (props) => {
     
