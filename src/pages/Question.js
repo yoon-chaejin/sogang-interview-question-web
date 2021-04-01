@@ -33,6 +33,7 @@ const Question = (props) => {
     const [question, setQuestion] = useState({});
     const [answers, setAnswers] = useState([])
     const [myAnswer, setMyAnswer] = useState('');
+    const [myAnswerId, setMyAnswerId] = useState('');
 
     useEffect(() => {
         isValidateToken(props);
@@ -50,6 +51,8 @@ const Question = (props) => {
             setAnswers(response.data.intvAnswers.filter(item => item.user.id != localStorage.getItem('userId')));
             setMyAnswer(response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0]
                 ? response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0].content : '');
+            setMyAnswerId(response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0]
+            ? response.data.intvAnswers.filter(item => item.user.id == localStorage.getItem('userId'))[0].id : '')
         })
     }
 
@@ -90,6 +93,24 @@ const Question = (props) => {
         })
         .then(response => {
             getQuestion();
+        })
+    }
+
+    const handleDelete = () => {
+        if (myAnswerId == '') {
+            setMyAnswer('');
+            return;
+        }
+        axios.delete(API_BASE_URL+'intv-answer/'+myAnswerId, null, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        })
+        .then(response => {
+            setMyAnswer('');
+        })
+        .catch(error => {
+
         })
     }
     return (
@@ -138,7 +159,7 @@ const Question = (props) => {
                         <Grid xs={7} md={10} item></Grid>
                         <Grid xs={5} md={2} item>
                             <Button onClick={handleSubmit}>Save</Button>
-                            <Button onClick={handleSubmit}>Delete</Button>
+                            <Button onClick={handleDelete}>Delete</Button>
                         </Grid>
                     </Grid>
                 </Container>
