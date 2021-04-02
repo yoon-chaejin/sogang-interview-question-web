@@ -120,7 +120,7 @@ const MyPage = (props) => {
 
     return (
         <div>
-            <NavigationBar title={"MyPage"} />
+            <NavigationBar title={"My Page"} />
             <Grid className={classes.containerGrid} container>
                 <Grid md={1} item></Grid>
                 <Grid className={classes.sideMenuGrid} xs={12} md={2} item>
