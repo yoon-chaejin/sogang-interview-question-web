@@ -323,7 +323,7 @@ const JaeyoonArticle = (props) => {
                         </Collapse>
                     </Container>
                 </Collapse>
-                <Typography className={classes.articleSectionTitle} variant="h6" onClick={() => handleClick(5)}>{isOpen[5] ? <ArrowDropDown/> : <ArrowRight/>}논문 정리하는 방법</Typography>
+                <Typography className={classes.articleSectionTitle} variant="h5" onClick={() => handleClick(5)}>{isOpen[5] ? <ArrowDropDown/> : <ArrowRight/>}논문 정리하는 방법</Typography>
                     <Collapse in={isOpen[5]}>
                         <Typography className={classes.articleBody} variant="body1">읽은 논문을 정리하는 습관을 가지면 후에 큰 도움이 됩니다. 논문 정리글을 쓰는 것이 가장 좋지만 여의치 않은 경우 표를 만들어서 간단하게 정리해도 괜찮습니다. 저는 구글 스프레드시트를 이용했는데, 노션 등 자신이 편한 툴을 이용해서 작성해보세요. 표에는 Title, Date, Venue, Keywords, Summary, Link 등을 정리합니다. 특히 Summary에 논문을 읽고 본인만의 언어로 한두줄 정도 정리하면, 기억에 훨씬 오래 남습니다. 나중에 면접에서 읽은 논문에 대한 질문을 받을 때도 이를 바탕으로 답변해보시길 바랍니다.</Typography>
                         <img className={classes.imgHorizontal} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon01.png"} alt="NLP"></img>
