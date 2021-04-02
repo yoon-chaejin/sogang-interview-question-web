@@ -90,6 +90,7 @@ const JaeyoonArticle = (props) => {
             <NavigationBar title={'ML/DL, 자연어처리 Roadmap'}/>
             <Container className={classes.articleContainer} maxWidth="md">
                 <Typography className={classes.articleTitle} variant="h4">공부 로드맵</Typography>
+                <Typography align={'right'} variant="subtitle1">아텍 15 천재윤</Typography>
                 <Typography className={classes.articleBody} variant="body1">딥러닝 분야가 뜬지 오래되지 않아 스탠다드한 공부 과정이나 용어가 정립되어 있지 않습니다. 이러한 점이 공부할 때 굉장히 혼란스러웠는데, 다른 분들도 비슷할 것 같습니다.</Typography>
                 <Typography className={classes.articleBody} variant="body1">그래서 제게 도움이 되었던 방법과 자료를 공유드리려고 합니다. 저는 처음부터 자연어처리에 관심을 가지고 시작했기 때문에 Vision이나 추천 시스템 등 다른 분야에 대해 공부한 적이 없습니다. 그러나 공부하는 방법은 유사할 것이라 생각하므로, 자신의 관심 분야에 맞게 변형하여 적용해보시길 바랍니다.</Typography>
                 <Typography className={classes.articleSectionTitle} variant="h5" onClick={() => handleClick(0)}>{isOpen[0] ? <ArrowDropDown/> : <ArrowRight/>}공부 개요</Typography>
