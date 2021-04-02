@@ -110,8 +110,7 @@ const JaeyoonArticle = (props) => {
             <NavigationBar title={'ML/DL, 자연어처리 Roadmap'}/>
             <Container className={classes.articleContainer} maxWidth="md">
                 <Typography className={classes.articleTitle} variant="h4">공부 로드맵</Typography>
-                <Typography className={classes.articleBody} variant="body1">딥러닝 분야가 뜬지 오래되지 않아 스탠다드한 공부 과정이나 용어가 정립되어 있지 않습니다. 이러한 점이 공부할 때 굉장히 혼란스러웠는데, 다른 분들도 비슷할 것 같습니다.</Typography>
-                <Typography className={classes.articleBody} variant="body1">그래서 제게 도움이 되었던 방법과 자료를 공유드리려고 합니다. 저는 처음부터 자연어처리에 관심을 가지고 시작했기 때문에 Vision이나 추천 시스템 등 다른 분야에 대해 공부한 적이 없습니다. 그러나 공부하는 방법은 유사할 것이라 생각하므로, 자신의 관심 분야에 맞게 변형하여 적용해보시길 바랍니다.</Typography>
+                <Typography className={classes.articleBody} variant="body1">딥러닝 분야가 뜬지 오래되지 않아 공부 과정이나 용어가 정립되어 있지 않습니다. 이러한 점이 공부할 때 굉장히 혼란스러웠는데, 다른 분들도 비슷할 것 같습니다. 그래서 제게 도움이 되었던 방법과 자료를 공유드리려고 합니다. 저는 처음부터 자연어처리에 관심을 가지고 시작했기 때문에 Vision이나 추천 시스템 등 다른 분야에 대해 공부한 적이 없습니다. 그러나 공부하는 방법은 유사할 것이라 생각하므로, 자신의 관심 분야에 맞게 변형하여 적용해보시길 바랍니다.</Typography>
                 <Typography className={classes.articleSectionTitle} variant="h5" onClick={() => handleClick(0)}>{isOpen[0] ? <ArrowDropDown/> : <ArrowRight/>}공부 개요</Typography>
                 <Collapse in={isOpen[0]}>
                     <Container>
@@ -322,43 +321,43 @@ const JaeyoonArticle = (props) => {
                             </List>
                             <Typography className={classes.articleBody} variant='body1'>이런 식으로 내가 찾고 싶은 내용과 반드시 들어가야 하는 키워드를 조합하여 검색하고, 검색 결과에서 피인용수가 높은 논문들부터 읽었습니다. 대부분의 논문들은 공개 되어 있으나, 가끔씩 유료로 읽어야 되는 논문들도 있었는데 이럴 때는 로욜라 도서관 홈페이지를 이용했습니다. 읽고 싶은 논문 제목을 복사하여 로욜라에서 검색하면 무료로 열람하고 다운로드 받을 수 있습니다.</Typography>
                         </Collapse>
-                        <Typography className={classes.articleSectionTitle} variant="h6" onClick={() => handleClick(5)}>{isOpen[5] ? <ArrowDropDown/> : <ArrowRight/>}논문 정리하는 방법</Typography>
-                        <Collapse in={isOpen[5]}>
-                            <Typography className={classes.articleBody} variant="body1">읽은 논문을 정리하는 습관을 가지면 후에 큰 도움이 됩니다. 논문 정리글을 쓰는 것이 가장 좋지만 여의치 않은 경우 표를 만들어서 간단하게 정리해도 괜찮습니다. 저는 구글 스프레드시트를 이용했는데, 노션 등 자신이 편한 툴을 이용해서 작성해보세요. 표에는 Title, Date, Venue, Keywords, Summary, Link 등을 정리합니다. 특히 Summary에 논문을 읽고 본인만의 언어로 한두줄 정도 정리하면, 기억에 훨씬 오래 남습니다. 나중에 면접에서 읽은 논문에 대한 질문을 받을 때도 이를 바탕으로 답변해보시길 바랍니다.</Typography>
-                            <img className={classes.imgHorizontal} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon01.png"} alt="NLP"></img>
-                            <Typography className={classes.articleBody} variant="body1">논문을 읽고 블로그 등에 정리할 때는 다음과 같이 정리하면 좋습니다.</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">1. 이 논문이 기여한 점, 어떤 문제를 해결하고자 하였는지?</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">2. 이 논문에서 제시하는 모델</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">- 모델 구조를 figure와 함께 제시</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">- 모델의 input과 output</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">- 수식</Typography>
-                            
-                            <Typography className={classes.articleOrderedList} variant="body1">3. 실험 환경, 방법</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">4. 실험 결과</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">- 성능 비교 표, 그래프</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">- 다른 모델과 비교해서 어떤 점이 뛰어난가?</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">5. 본인의 느낌</Typography><br/>
-
-
-                            <Typography className={classes.articleBody} variant="body1">간단하게 예시를 들어보겠습니다.</Typography>
-                            <Typography variant="body1"><StrongLink href={'https://openreview.net/pdf?id=r1xMH1BtvB'} target={'_blank'}>ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators</StrongLink></Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">1. 기여한 점: 기존 MLM은 15%의 토큰만 마스킹 하여 전체 문맥을 학습하는데 비효율적, 반면 우리 모델은 바뀐 토큰을 예측하게 하여 적은 데이터와, 파라미터, 적은 시간으로 효율적인 학습, 그럼에도 SOTA 달성. </Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">2. 제시 모델: Generator + Discriminator</Typography>
-                            
-                            <img className={classes.imgRectangular} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon02.png"} alt="NLP"></img>
-                            <Typography className={classes.articleOrderedList} variant="body1">(모델 수식 첨부하고 설명~~ 생략)</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">3. 실험 환경, 방법: Weight sharing 실험 설명, small generator로 세팅한 이유 설명 (생략)</Typography>
-                            <Typography className={classes.articleOrderedList} variant="body1">4. 실험결과: </Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">ELECTRA-Small의 경우 1대의 gpu에서 4일만에 학습되었고 GPT 모델보다 뛰어난 성능을 보임. ELECTRA-Large 모델은 RoBERTa에서 사용한 컴퓨팅 자원의 1/4를 사용하였을 때 동일한 성능을 보임.</Typography>
-                            <Typography className={classes.articleUnorderedList} variant="body1">ELECTRA-Small은 작은 크기에도 불구하고 우수한 성능, ELECTRA-Base는 BERT-Base, BERT-Large보다 높은 성능을 보임.</Typography>
-                            
-                            <img className={classes.img} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon03.png"} alt="NLP"></img>
-                            <img className={classes.img} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon04.png"} alt="NLP"></img>
-                            <Typography className={classes.articleOrderedList} variant="body1">5. 느낀 점: Training objective의 변화만으로 학습 자원의 큰 감소를 가지고 올 수 있다는 점이 흥미로움. ELECTRA 모델 구조를 Multi-modal, Multi-task learning에 사용할 수 있을까?</Typography>
-                            <Typography className={classes.articleBody} variant='body1'>이런식으로 정리하다 보면 눈으로만 읽었을 때보다 훨씬 잘 이해되는 것을 느낄 수 있을 거예요.</Typography>
-                        </Collapse>
                     </Container>
                 </Collapse>
+                <Typography className={classes.articleSectionTitle} variant="h6" onClick={() => handleClick(5)}>{isOpen[5] ? <ArrowDropDown/> : <ArrowRight/>}논문 정리하는 방법</Typography>
+                    <Collapse in={isOpen[5]}>
+                        <Typography className={classes.articleBody} variant="body1">읽은 논문을 정리하는 습관을 가지면 후에 큰 도움이 됩니다. 논문 정리글을 쓰는 것이 가장 좋지만 여의치 않은 경우 표를 만들어서 간단하게 정리해도 괜찮습니다. 저는 구글 스프레드시트를 이용했는데, 노션 등 자신이 편한 툴을 이용해서 작성해보세요. 표에는 Title, Date, Venue, Keywords, Summary, Link 등을 정리합니다. 특히 Summary에 논문을 읽고 본인만의 언어로 한두줄 정도 정리하면, 기억에 훨씬 오래 남습니다. 나중에 면접에서 읽은 논문에 대한 질문을 받을 때도 이를 바탕으로 답변해보시길 바랍니다.</Typography>
+                        <img className={classes.imgHorizontal} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon01.png"} alt="NLP"></img>
+                        <Typography className={classes.articleBody} variant="body1">논문을 읽고 블로그 등에 정리할 때는 다음과 같이 정리하면 좋습니다.</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">1. 이 논문이 기여한 점, 어떤 문제를 해결하고자 하였는지?</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">2. 이 논문에서 제시하는 모델</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">- 모델 구조를 figure와 함께 제시</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">- 모델의 input과 output</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">- 수식</Typography>
+                        
+                        <Typography className={classes.articleOrderedList} variant="body1">3. 실험 환경, 방법</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">4. 실험 결과</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">- 성능 비교 표, 그래프</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">- 다른 모델과 비교해서 어떤 점이 뛰어난가?</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">5. 본인의 느낌</Typography><br/>
+
+
+                        <Typography className={classes.articleBody} variant="body1">간단하게 예시를 들어보겠습니다.</Typography>
+                        <Typography variant="body1"><StrongLink href={'https://openreview.net/pdf?id=r1xMH1BtvB'} target={'_blank'}>ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators</StrongLink></Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">1. 기여한 점: 기존 MLM은 15%의 토큰만 마스킹 하여 전체 문맥을 학습하는데 비효율적, 반면 우리 모델은 바뀐 토큰을 예측하게 하여 적은 데이터와, 파라미터, 적은 시간으로 효율적인 학습, 그럼에도 SOTA 달성. </Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">2. 제시 모델: Generator + Discriminator</Typography>
+                        
+                        <img className={classes.imgRectangular} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon02.png"} alt="NLP"></img>
+                        <Typography className={classes.articleOrderedList} variant="body1">(모델 수식 첨부하고 설명~~ 생략)</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">3. 실험 환경, 방법: Weight sharing 실험 설명, small generator로 세팅한 이유 설명 (생략)</Typography>
+                        <Typography className={classes.articleOrderedList} variant="body1">4. 실험결과: </Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">ELECTRA-Small의 경우 1대의 gpu에서 4일만에 학습되었고 GPT 모델보다 뛰어난 성능을 보임. ELECTRA-Large 모델은 RoBERTa에서 사용한 컴퓨팅 자원의 1/4를 사용하였을 때 동일한 성능을 보임.</Typography>
+                        <Typography className={classes.articleUnorderedList} variant="body1">ELECTRA-Small은 작은 크기에도 불구하고 우수한 성능, ELECTRA-Base는 BERT-Base, BERT-Large보다 높은 성능을 보임.</Typography>
+                        
+                        <img className={classes.img} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon03.png"} alt="NLP"></img>
+                        <img className={classes.img} src={"https://sogang-tree-dev.s3.ap-northeast-2.amazonaws.com/images/jaeyoon04.png"} alt="NLP"></img>
+                        <Typography className={classes.articleOrderedList} variant="body1">5. 느낀 점: Training objective의 변화만으로 학습 자원의 큰 감소를 가지고 올 수 있다는 점이 흥미로움. ELECTRA 모델 구조를 Multi-modal, Multi-task learning에 사용할 수 있을까?</Typography>
+                        <Typography className={classes.articleBody} variant='body1'>이런식으로 정리하다 보면 눈으로만 읽었을 때보다 훨씬 잘 이해되는 것을 느낄 수 있을 거예요.</Typography>
+                    </Collapse>
                 <Typography className={classes.articleSectionTitle} variant="h5" onClick={() => handleClick(3)}>{isOpen[3] ? <ArrowDropDown/> : <ArrowRight/>}프로젝트 하는 방법</Typography>
                 <Collapse in={isOpen[3]}>
                     <Container>
