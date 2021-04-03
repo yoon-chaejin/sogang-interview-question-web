@@ -101,7 +101,7 @@ const Question = (props) => {
             setMyAnswer('');
             return;
         }
-        axios.delete(API_BASE_URL+'intv-answer/'+myAnswerId, null, {
+        axios.delete(API_BASE_URL+'intv-answer/'+myAnswerId, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
