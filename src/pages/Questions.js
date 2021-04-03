@@ -81,9 +81,9 @@ return (
                 <Typography className={classes.title} variant='h5'>{tagName}</Typography>
                 <Grid container>
                     {questions.map((item) => (
-                        <Grid className={classes.questionGrid} xs={12} item key={item.id}>
-                            <Link href={'/questions/'+item.id}>
-                                <Button className={classes.questionButton} color="primary" variant='outlined' size='large'>{item.content}</Button>
+                        <Grid className={classes.questionGrid} xs={12} item key={item.intv_question_id}>
+                            <Link href={'/questions/'+item.intv_question_id}>
+                                <Button className={classes.questionButton} color="primary" variant='outlined' size='large'>{item.intv_question_content + ' [' + item.intvAnswerCount + ']'}</Button>
                             </Link>
                         </Grid>
                     ))}
