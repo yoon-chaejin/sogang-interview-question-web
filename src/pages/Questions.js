@@ -51,6 +51,9 @@ const Questions = (props) => {
         }
     }, [tagId])
 
+    useEffect(() => {
+        props.history.push('/questions?tag=' + queryString.parse(props.location.search).tag);
+    }, [questions])
 
     const getTagName = async () => {
         axios.get(API_BASE_URL+'tag/'+tagId, {
